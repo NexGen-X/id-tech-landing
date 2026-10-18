@@ -47,11 +47,14 @@ export const RegisterModal: FC<RegisterModalProps> = ({
       return;
     }
 
+    const orgName = formData.workspaceName.trim() || `${formData.name.trim()}'s Workspace`;
     const payload = {
       name: formData.name.trim(),
+      displayName: formData.name.trim(),
       email: formData.email.trim().toLowerCase(),
       password: formData.password,
-      workspaceName: formData.workspaceName.trim() || `${formData.name.trim()}'s Workspace`,
+      workspaceName: orgName,
+      companyName: orgName,
     };
 
     setLoading(true);
