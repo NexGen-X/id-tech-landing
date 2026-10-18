@@ -9,7 +9,8 @@ import {
   Zap, 
   Activity,
   Layers,
-  ChevronRight
+  ChevronRight,
+  Code2
 } from 'lucide-react';
 import { CONFIG } from '../config';
 
@@ -24,28 +25,32 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
   const swarmActivities = [
     {
       agent: 'Lead Architect (AI)',
-      avatar: '🏛️',
+      icon: <Layers className="w-4 h-4 text-amber-400" />,
+      bg: 'bg-amber-500/10 border-amber-500/30',
       color: 'text-amber-400',
       action: 'Menganalisis requirements proyek & menyusun blueprint arsitektur sistem...',
       status: 'DONE',
     },
     {
       agent: 'Senior Developer (AI)',
-      avatar: '⚡',
+      icon: <Code2 className="w-4 h-4 text-blue-400" />,
+      bg: 'bg-blue-500/10 border-blue-500/30',
       color: 'text-blue-400',
       action: 'Menulis endpoint REST API, schema database PostgreSQL, dan service queue...',
       status: 'DONE',
     },
     {
       agent: 'Security Auditor (AI)',
-      avatar: '🛡️',
+      icon: <ShieldCheck className="w-4 h-4 text-emerald-400" />,
+      bg: 'bg-emerald-500/10 border-emerald-500/30',
       color: 'text-emerald-400',
       action: 'Audit zero SQL injection, sanitasi input, rate limiting & verifikasi JWT...',
       status: 'DONE',
     },
     {
       agent: 'Autonomous SRE (AI)',
-      avatar: '🚀',
+      icon: <Zap className="w-4 h-4 text-purple-400" />,
+      bg: 'bg-purple-500/10 border-purple-500/30',
       color: 'text-purple-400',
       action: 'Otomasi deployment ke cloud cluster & validasi 99.99% latency SLA...',
       status: 'ACTIVE',
@@ -60,7 +65,7 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
   }, [swarmActivities.length]);
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
       {/* Background radial gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-blue-600/20 via-indigo-600/15 to-purple-600/10 blur-[130px] -z-10 pointer-events-none rounded-full" />
       <div className="absolute top-20 right-10 w-[350px] h-[350px] bg-cyan-500/10 blur-[100px] -z-10 pointer-events-none rounded-full" />
@@ -165,7 +170,9 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
                         : 'bg-slate-900/30 border border-slate-800/40 opacity-70'
                     }`}
                   >
-                    <div className="text-lg select-none">{act.avatar}</div>
+                    <div className={`p-2 rounded-lg border ${act.bg} shrink-0`}>
+                      {act.icon}
+                    </div>
                     <div className="flex-1 space-y-1">
                       <div className="flex items-center justify-between">
                         <span className={`font-semibold ${act.color}`}>
