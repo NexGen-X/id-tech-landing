@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { FC } from 'react';
-import { Cpu, ArrowRight, Menu, X, Sparkles } from 'lucide-react';
+import { ArrowRight, Menu, X, Sparkles } from 'lucide-react';
 import { CONFIG } from '../config';
+import { IdTechLogo } from './IdTechLogo';
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -13,21 +14,14 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister }) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-3.5 sm:pt-5 pointer-events-none">
       <nav className="w-full max-w-5xl rounded-full glass-panel border border-slate-700/60 bg-slate-950/80 backdrop-blur-2xl shadow-2xl shadow-black/60 px-3 sm:px-4 py-2 flex items-center justify-between pointer-events-auto transition-all duration-300">
-        {/* Brand: Minimalist Glowing Emblem (Logo Only, No Clutter) */}
+        {/* Brand: Bespoke Characteristic "id-tech" Logo */}
         <a
           href="#"
-          className="flex items-center gap-2 group p-1"
-          title="ID-Tech Cloud — Autonomous AI Workforce Platform"
-          aria-label="ID-Tech Cloud Home"
+          className="flex items-center group py-0.5 px-1"
+          title="id-tech — Autonomous AI Workforce Platform"
+          aria-label="id-tech Home"
         >
-          <div className="relative w-9 h-9 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/50 group-hover:scale-105 transition-all duration-300 border border-white/20">
-            <Cpu className="w-4 h-4 text-white" />
-            {/* Live operational pulse dot */}
-            <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 border-2 border-slate-950" />
-            </span>
-          </div>
+          <IdTechLogo size="md" showText={true} />
         </a>
 
         {/* Center: Sleek Rounded Pill Navigation Links */}

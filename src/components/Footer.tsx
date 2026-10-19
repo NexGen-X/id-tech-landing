@@ -1,6 +1,7 @@
 import type { FC } from 'react';
-import { Cpu, Mail, Shield, ExternalLink } from 'lucide-react';
+import { Mail, Shield, ExternalLink } from 'lucide-react';
 import { CONFIG } from '../config';
+import { IdTechLogo } from './IdTechLogo';
 
 export const Footer: FC = () => {
   return (
@@ -10,12 +11,7 @@ export const Footer: FC = () => {
           {/* Brand Info */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                <Cpu className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-bold tracking-tight text-white">
-                ID-TECH<span className="text-blue-400">.CLOUD</span>
-              </span>
+              <IdTechLogo size="lg" showText={true} />
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
               Platform orkestrasi Autonomous AI Workforce pertama di Indonesia. Membantu perusahaan
