@@ -53,6 +53,11 @@ export const Footer: FC = () => {
                 </a>
               </li>
               <li>
+                <a href="#ulasan" className="hover:text-white transition-colors">
+                  Ulasan & Testimoni
+                </a>
+              </li>
+              <li>
                 <a href="#faq" className="hover:text-white transition-colors">
                   FAQ
                 </a>

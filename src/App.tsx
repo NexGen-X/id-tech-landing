@@ -5,6 +5,7 @@ import { Features } from './components/Features';
 import { AgentSwarmShowcase } from './components/AgentSwarmShowcase';
 import { RoiCalculator } from './components/RoiCalculator';
 import { Pricing } from './components/Pricing';
+import { CustomerReviews } from './components/CustomerReviews';
 import { SecurityArchitecture } from './components/SecurityArchitecture';
 import { Faq } from './components/Faq';
 import { Footer } from './components/Footer';
@@ -35,6 +36,7 @@ export function App() {
         <AgentSwarmShowcase onOpenRegister={() => handleOpenRegister()} />
         <RoiCalculator onOpenRegister={() => handleOpenRegister()} />
         <Pricing onOpenRegister={handleOpenRegister} />
+        <CustomerReviews />
         <SecurityArchitecture />
         <Faq />
       </main>

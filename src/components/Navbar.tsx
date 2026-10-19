@@ -51,6 +51,12 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister }) => {
             Harga
           </a>
           <a
+            href="#ulasan"
+            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+          >
+            Ulasan
+          </a>
+          <a
             href="#faq"
             className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
@@ -128,6 +134,13 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister }) => {
               className="p-2 rounded-lg hover:bg-white/5"
             >
               Harga Paket
+            </a>
+            <a
+              href="#ulasan"
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-white/5"
+            >
+              Ulasan Pelanggan
             </a>
             <a
               href="#faq"
