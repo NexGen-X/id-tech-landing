@@ -208,7 +208,7 @@ export const CustomerReviews: FC = () => {
   });
 
   return (
-    <section id="ulasan" className="relative py-20 bg-slate-950/70 border-t border-slate-800/80 overflow-hidden">
+    <section id="ulasan" className="relative py-20 bg-slate-950/70 border-t border-slate-800/80 overflow-hidden scroll-mt-24">
       {/* Background Neon Halo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/5 blur-[120px] rounded-full pointer-events-none" />
 
