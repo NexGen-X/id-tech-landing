@@ -6,9 +6,10 @@ import { IdTechLogo } from './IdTechLogo';
 
 interface NavbarProps {
   onOpenRegister: () => void;
+  onOpenWhitepaper?: () => void;
 }
 
-export const Navbar: FC<NavbarProps> = ({ onOpenRegister }) => {
+export const Navbar: FC<NavbarProps> = ({ onOpenRegister, onOpenWhitepaper }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -28,37 +29,45 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister }) => {
         <div className="hidden md:flex items-center gap-1 text-xs lg:text-sm font-medium text-slate-300">
           <a
             href="#fitur"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+            className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
             Fitur
           </a>
           <a
             href="#swarm"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+            className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
             Solusi Tim
           </a>
           <a
             href="#arsitektur"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+            className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
             Keamanan
           </a>
           <a
             href="#harga"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+            className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
             Harga
           </a>
           <a
             href="#ulasan"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+            className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
             Ulasan
           </a>
+          {onOpenWhitepaper && (
+            <button
+              onClick={onOpenWhitepaper}
+              className="px-3 py-1.5 rounded-full text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 transition-all font-semibold"
+            >
+              Whitepaper
+            </button>
+          )}
           <a
             href="#faq"
-            className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
+            className="px-3 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-all"
           >
             FAQ
           </a>

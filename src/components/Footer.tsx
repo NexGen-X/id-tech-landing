@@ -1,9 +1,15 @@
 import type { FC } from 'react';
-import { Mail, Shield, ExternalLink } from 'lucide-react';
+import { Mail, Shield, ExternalLink, BookOpen } from 'lucide-react';
 import { CONFIG } from '../config';
 import { IdTechLogo } from './IdTechLogo';
+import type { LegalTab } from './LegalModal';
 
-export const Footer: FC = () => {
+interface FooterProps {
+  onOpenLegal?: (tab?: LegalTab) => void;
+  onOpenWhitepaper?: () => void;
+}
+
+export const Footer: FC<FooterProps> = ({ onOpenLegal, onOpenWhitepaper }) => {
   return (
     <footer className="border-t border-slate-800/80 bg-slate-950/80 py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,6 +64,16 @@ export const Footer: FC = () => {
                 </a>
               </li>
               <li>
+                <button
+                  type="button"
+                  onClick={onOpenWhitepaper}
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5"
+                >
+                  <BookOpen className="w-3.5 h-3.5" />
+                  <span>Technical Whitepaper v2.4</span>
+                </button>
+              </li>
+              <li>
                 <a href="#faq" className="hover:text-white transition-colors">
                   FAQ
                 </a>
@@ -100,19 +116,31 @@ export const Footer: FC = () => {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Kepatuhan & Trust</h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <span className="hover:text-white cursor-pointer transition-colors">
-                  Kebijakan Privasi
-                </span>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal && onOpenLegal('privacy')}
+                  className="hover:text-white transition-colors text-left flex items-center gap-1.5"
+                >
+                  <span>Kebijakan Privasi (UU PDP)</span>
+                </button>
               </li>
               <li>
-                <span className="hover:text-white cursor-pointer transition-colors">
-                  Syarat & Ketentuan Layanan
-                </span>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal && onOpenLegal('terms')}
+                  className="hover:text-white transition-colors text-left flex items-center gap-1.5"
+                >
+                  <span>Syarat & Ketentuan Layanan (ToS)</span>
+                </button>
               </li>
               <li>
-                <span className="hover:text-white cursor-pointer transition-colors">
-                  Service Level Agreement (SLA)
-                </span>
+                <button
+                  type="button"
+                  onClick={() => onOpenLegal && onOpenLegal('sla')}
+                  className="hover:text-white transition-colors text-left flex items-center gap-1.5"
+                >
+                  <span>Service Level Agreement (SLA 99.9%)</span>
+                </button>
               </li>
               <li>
                 <span className="text-emerald-400/90 flex items-center gap-1.5 font-medium">
