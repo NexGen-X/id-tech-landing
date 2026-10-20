@@ -5,7 +5,10 @@ import {
   Workflow, 
   LineChart, 
   Brain, 
-  Lock 
+  Lock,
+  GitPullRequest,
+  DollarSign,
+  Clock
 } from 'lucide-react';
 
 export const Features: FC = () => {
@@ -21,35 +24,56 @@ export const Features: FC = () => {
       icon: <Cpu className="w-6 h-6 text-cyan-400" />,
       title: 'Hybrid Multi-LLM Gateway',
       description:
-        'Dukungan native ke OpenAI GPT-4o, Anthropic Claude 3.7, Google Gemini 2.5 Flash, dan Ollama lokal. Router cerdas memilih model paling efisien secara biaya dan akurasi.',
-      badge: 'Cost Optimizer',
+        'Dukungan native ke Azure OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, Groq LPU, dan DeepSeek. Router cerdas memilih model paling efisien secara biaya dan akurasi.',
+      badge: 'Failover <200ms',
+    },
+    {
+      icon: <GitPullRequest className="w-6 h-6 text-purple-400" />,
+      title: 'GitHub & GitLab CI/CD PR Bot',
+      description:
+        'Terintegrasi langsung ke repositori Anda. Ketika PR dibuka, agen Reviewer dan Security otomatis memindai diff kode, mengaudit race conditions, dan memberi inline review.',
+      badge: 'GitOps Native',
+    },
+    {
+      icon: <DollarSign className="w-6 h-6 text-emerald-400" />,
+      title: 'AI FinOps & Anti-Bill-Shock Guard',
+      description:
+        'Visibilitas konsumsi token dan estimasi biaya per-agen dan per-model secara real-time. Dilengkapi budget cap dan auto-fallback ke model open-weights saat kuota tercapai.',
+      badge: 'Cost Guard',
+    },
+    {
+      icon: <Clock className="w-6 h-6 text-pink-400" />,
+      title: 'Scheduled Autonomous Daemons',
+      description:
+        'Agen bekerja 24/7 di latar belakang sesuai cron schedule: morning standup digest, SRE health sentinel setiap 10 menit, dan pemindaian kerentanan CVE mingguan.',
+      badge: '24/7 Automation',
     },
     {
       icon: <Lock className="w-6 h-6 text-emerald-400" />,
-      title: 'Enterprise Tenant Isolation',
+      title: 'Enterprise Zero-Training Isolation',
       description:
-        'Setiap perusahaan memiliki ruang kerja (workspace) yang terenkripsi dan terisolasi total. Data Anda dijamin 100% privat dan tidak pernah digunakan untuk melatih model AI publik.',
-      badge: 'Zero Data Leak',
+        'Setiap perusahaan memiliki ruang kerja (workspace) yang terenkripsi dan terisolasi total. Data dan kode sumber dijamin 100% privat dan tidak pernah melatih model AI publik.',
+      badge: 'UU PDP & GDPR',
     },
     {
-      icon: <Brain className="w-6 h-6 text-purple-400" />,
-      title: 'Persistent Memory Graph & Knowledge',
+      icon: <Brain className="w-6 h-6 text-indigo-400" />,
+      title: 'AST Codebase Memory Graph',
       description:
-        'Agen tidak lupa konteks. Memory graph menyimpan dokumentasi arsitektur, basis pengetahuan bisnis, dan riwayat keputusan untuk koordinasi jangka panjang.',
-      badge: 'Knowledge Graph',
+        'Tree-sitter syntax parsing yang memetakan hubungan fungsi, hierarki kelas, dan tipe data lintas berkas sehingga agen memahami arsitektur proyek tanpa batasan context window.',
+      badge: 'AST Deep-Tech',
     },
     {
       icon: <Workflow className="w-6 h-6 text-amber-400" />,
       title: 'Sandbox Tool & Code Execution',
       description:
-        'Agen dilengkapi hak eksekusi terminal yang aman, query PostgreSQL, web research otomatis, dan integrasi MCP (Model Context Protocol) untuk output nyata.',
+        'Agen dilengkapi hak eksekusi terminal mikro terisolasi, query database otomatis, web research, dan integrasi MCP (Model Context Protocol) untuk output kode nyata.',
       badge: 'Action-Oriented',
     },
     {
       icon: <LineChart className="w-6 h-6 text-rose-400" />,
-      title: 'Real-time Telemetry & Audit Logs',
+      title: 'Real-time Telemetry & War Room',
       description:
-        'Visibilitas penuh terhadap setiap detik proses berpikir agen, konsumsi kuota task, jejak audit keamanan, dan metrik latensi secara real-time via SSE.',
+        'Visibilitas penuh terhadap proses berpikir agen, konsumsi kuota task, jejak audit keamanan immutable, dan live incident triage collaborative war room via SSE.',
       badge: 'Observability',
     },
   ];
