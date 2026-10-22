@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import { ArrowRight, Menu, X, Sparkles } from 'lucide-react';
 import { CONFIG } from '../config';
 import { IdTechLogo } from './IdTechLogo';
+import { ThemeSelector } from './ThemeSelector';
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -73,8 +74,10 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister, onOpenWhitepaper }) =>
           </a>
         </div>
 
-        {/* Right: Actions (Console & Coba Gratis) */}
+        {/* Right: Actions (Theme, Console & Coba Gratis) */}
         <div className="hidden sm:flex items-center gap-2">
+          <ThemeSelector />
+
           <a
             href={CONFIG.appConsoleUrl}
             target="_blank"
@@ -87,7 +90,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister, onOpenWhitepaper }) =>
 
           <button
             onClick={onOpenRegister}
-            className="px-4 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5"
+            className="px-4 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 rounded-full shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-1.5 cursor-pointer"
           >
             <Sparkles className="w-3.5 h-3.5 text-cyan-200" />
             <span>Coba Gratis</span>
@@ -95,16 +98,18 @@ export const Navbar: FC<NavbarProps> = ({ onOpenRegister, onOpenWhitepaper }) =>
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <div className="flex sm:hidden items-center gap-1">
+        <div className="flex sm:hidden items-center gap-1.5">
+          <ThemeSelector compact={true} />
+
           <button
             onClick={onOpenRegister}
-            className="px-3 py-1 text-xs font-semibold text-white bg-blue-600 rounded-full"
+            className="px-3 py-1 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full cursor-pointer"
           >
             Coba Gratis
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

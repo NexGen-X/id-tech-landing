@@ -1,21 +1,38 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  --bg-main: #030712;
+  --text-main: #f3f4f6;
+  --panel-bg: rgba(17, 24, 39, 0.7);
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --accent-color: #06b6d4;
+  --accent-glow: rgba(6, 182, 212, 0.35);
+}
+
+html.light {
+  color-scheme: light;
+  --bg-main: #f8fafc;
+  --text-main: #0f172a;
+  --panel-bg: rgba(255, 255, 255, 0.88);
+  --card-bg: #ffffff;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
 @layer base {
-  :root {
-    color-scheme: dark;
-  }
-  
   body {
-    background-color: #030712;
-    color: #f3f4f6;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 }
 
 /* Custom glowing effects and gradients */
 .glow-primary {
-  box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 50px -10px var(--accent-glow, rgba(59, 130, 246, 0.4));
 }
 
 .glow-purple {
@@ -23,17 +40,130 @@
 }
 
 .glass-panel {
-  background: rgba(17, 24, 39, 0.7);
+  background: var(--panel-bg);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
 }
 
 .glass-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
 }
 
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: var(--accent-color, rgba(99, 102, 241, 0.4));
+}
+
+/* Light Mode Overrides for High-Contrast Clean Aesthetics */
+html.light .bg-\[\#030712\],
+html.light .bg-slate-950 {
+  background-color: #f8fafc !important;
+}
+
+html.light .text-slate-100,
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .bg-slate-900,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/50 {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .border-slate-800,
+html.light .border-slate-700,
+html.light .border-slate-700\/80,
+html.light .border-slate-700\/60,
+html.light .border-slate-800\/60 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light nav.glass-panel {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light .glass-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+html.light .glass-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Ensure buttons with solid gradient retain white text */
+html.light button[class*="bg-gradient-to-r"],
+html.light button[class*="bg-gradient-to-r"] *,
+html.light button[class*="bg-blue-600"],
+html.light button[class*="bg-blue-600"] * {
+  color: #ffffff !important;
+}
+
+/* Accent Themes dynamic overrides */
+.theme-emerald {
+  --accent-color: #10B981;
+  --accent-glow: rgba(16, 185, 129, 0.35);
+}
+
+.theme-monochrome {
+  --accent-color: #FFFFFF;
+  --accent-glow: rgba(255, 255, 255, 0.3);
+}
+html.light.theme-monochrome {
+  --accent-color: #0F172A;
+  --accent-glow: rgba(15, 23, 42, 0.2);
+}
+
+.theme-amber {
+  --accent-color: #F59E0B;
+  --accent-glow: rgba(245, 158, 11, 0.35);
+}
+
+.theme-violet {
+  --accent-color: #8B5CF6;
+  --accent-glow: rgba(139, 92, 246, 0.35);
+}
+
+.theme-cyan {
+  --accent-color: #06B6D4;
+  --accent-glow: rgba(6, 182, 212, 0.35);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Safe area for mobile home indicator */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
 }
