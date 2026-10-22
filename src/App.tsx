@@ -47,7 +47,14 @@ function LandingContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-blue-600 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-neutral-50 dark:bg-[#000000] text-neutral-900 dark:text-neutral-100 selection:bg-neutral-800 selection:text-white transition-colors duration-200 relative overflow-hidden">
+      {/* Vercel / Railway Minimal Dot Matrix Background */}
+      <div className="fixed inset-0 bg-[radial-gradient(#d4d4d8_1px,transparent_1px)] dark:bg-[radial-gradient(#1f1f1f_1px,transparent_1px)] bg-[size:1.75rem_1.75rem] pointer-events-none opacity-80 z-0" />
+      <div 
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[20rem] rounded-full blur-3xl pointer-events-none opacity-25 z-0" 
+        style={{ background: `radial-gradient(ellipse at top, ${accent.hex}40, transparent 70%)` }}
+      />
+
       {/* Top Fixed Navbar */}
       <Navbar
         onOpenRegister={() => handleOpenRegister()}
