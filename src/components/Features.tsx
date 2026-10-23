@@ -82,13 +82,13 @@ export const Features: FC = () => {
     <section id="fitur" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
+          <span className="text-xs font-mono font-medium uppercase tracking-widest text-zinc-400 bg-zinc-900 px-3 py-1 rounded-full border border-zinc-800">
             Arsitektur & Kapabilitas
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Fondasi Teknologi Kelas Dunia untuk AI Generasi Baru
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
+          <p className="text-zinc-400 text-base sm:text-lg">
             Dirancang dari nol untuk stabilitas enterprise, keamanan data berlapis, dan kecepatan
             eksekusi tanpa kompromi.
           </p>
@@ -98,23 +98,23 @@ export const Features: FC = () => {
           {featureList.map((item, index) => (
             <div
               key={index}
-              className="glass-card p-6 sm:p-7 rounded-2xl border border-slate-800 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
+              className="glass-card p-6 sm:p-7 rounded-2xl border border-zinc-800/80 hover:border-zinc-700 bg-zinc-950/60 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-28 h-28 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors pointer-events-none" />
+              <div className="absolute top-0 right-0 w-28 h-28 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors pointer-events-none" />
 
               <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-blue-500/30 transition-colors">
+                <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 group-hover:border-zinc-700 transition-colors">
                   {item.icon}
                 </div>
-                <span className="text-[11px] font-semibold text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700/50">
+                <span className="text-[11px] font-mono font-medium text-zinc-400 bg-zinc-900/90 px-2.5 py-1 rounded-md border border-zinc-800">
                   {item.badge}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-blue-300 transition-colors">
+              <h3 className="text-xl font-bold text-white mb-2.5 group-hover:text-zinc-200 transition-colors tracking-tight">
                 {item.title}
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
+              <p className="text-zinc-400 text-sm leading-relaxed">
                 {item.description}
               </p>
             </div>

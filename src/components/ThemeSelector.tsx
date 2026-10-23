@@ -29,47 +29,47 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ compact = false, c
       <button
         onClick={() => setIsOpen(!isOpen)}
         title="Sesuaikan Tema & Warna Estetika (Gelap, Terang, Auto)"
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 hover:bg-slate-800 border border-slate-700/80 text-slate-200 transition text-xs font-medium shadow-sm cursor-pointer"
+        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-300 transition text-xs font-medium shadow-sm cursor-pointer"
       >
         <span 
           className="w-2.5 h-2.5 rounded-full shrink-0 shadow-sm ring-1 ring-white/20" 
           style={{ backgroundColor: accent.hex }} 
         />
         {resolvedMode === 'dark' ? (
-          <Moon className="w-3.5 h-3.5 text-slate-300" />
+          <Moon className="w-3.5 h-3.5 text-zinc-400" />
         ) : (
           <Sun className="w-3.5 h-3.5 text-amber-500" />
         )}
         {!compact && (
           <>
-            <span className="hidden sm:inline font-mono text-[11px] capitalize">{accent.label.split(' ')[0]}</span>
-            <ChevronDown className="w-3 h-3 text-slate-400" />
+            <span className="hidden sm:inline font-mono text-[11px] capitalize">{accent.name.split(' ')[0]}</span>
+            <ChevronDown className="w-3 h-3 text-zinc-400" />
           </>
         )}
       </button>
 
       {/* Popover Menu */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-64 rounded-2xl bg-slate-950/95 dark:bg-slate-950/95 border border-slate-800 shadow-2xl p-4 space-y-4 z-50 animate-fadeIn text-xs backdrop-blur-2xl">
+        <div className="absolute right-0 top-full mt-2 w-64 rounded-2xl bg-white dark:bg-[#09090b] border border-neutral-200 dark:border-zinc-800 shadow-2xl p-4 space-y-4 z-50 animate-fadeIn text-xs backdrop-blur-2xl">
           {/* Header */}
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800">
-            <div className="flex items-center gap-2 font-semibold text-white">
-              <Palette className="w-4 h-4 text-cyan-400" />
+          <div className="flex items-center justify-between pb-2 border-b border-neutral-100 dark:border-zinc-800/80">
+            <div className="flex items-center gap-2 font-semibold text-neutral-900 dark:text-white">
+              <Palette className="w-4 h-4 text-zinc-400" />
               <span>Personalisasi Tema</span>
             </div>
-            <span className="text-[10px] font-mono uppercase text-slate-400">UI / UX</span>
+            <span className="text-[10px] font-mono uppercase text-zinc-400">UI / UX</span>
           </div>
 
           {/* Theme Mode Selector (Dark, Light, System) */}
           <div className="space-y-2">
-            <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">Mode Tampilan</span>
-            <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-slate-900 border border-slate-800">
+            <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider block">Mode Tampilan</span>
+            <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-neutral-100 dark:bg-black/80 border border-neutral-200 dark:border-zinc-800">
               <button
                 onClick={() => setThemeMode('dark')}
                 className={`py-1.5 rounded-lg flex items-center justify-center gap-1.5 transition text-[11px] font-medium cursor-pointer ${
                   themeMode === 'dark'
-                    ? 'bg-slate-800 text-white shadow-sm ring-1 ring-slate-700'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
                 <Moon className="w-3.5 h-3.5" />
@@ -80,8 +80,8 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ compact = false, c
                 onClick={() => setThemeMode('light')}
                 className={`py-1.5 rounded-lg flex items-center justify-center gap-1.5 transition text-[11px] font-medium cursor-pointer ${
                   themeMode === 'light'
-                    ? 'bg-slate-800 text-white shadow-sm ring-1 ring-slate-700'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
                 <Sun className="w-3.5 h-3.5" />
@@ -92,8 +92,8 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ compact = false, c
                 onClick={() => setThemeMode('system')}
                 className={`py-1.5 rounded-lg flex items-center justify-center gap-1.5 transition text-[11px] font-medium cursor-pointer ${
                   themeMode === 'system'
-                    ? 'bg-slate-800 text-white shadow-sm ring-1 ring-slate-700'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
                 <Monitor className="w-3.5 h-3.5" />
@@ -105,8 +105,8 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ compact = false, c
           {/* Aesthetic Accent Color Selector */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Aksen Estetika</span>
-              <span className="text-[10px] font-mono text-cyan-400">{accent.label}</span>
+              <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">Aksen Estetika</span>
+              <span className="text-[10px] font-mono text-zinc-400">{accent.label}</span>
             </div>
 
             <div className="grid grid-cols-6 gap-1.5">
@@ -120,8 +120,8 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ compact = false, c
                     title={`${conf.name} (${conf.label})`}
                     className={`group relative h-8 rounded-xl flex items-center justify-center transition border cursor-pointer ${
                       isSelected
-                        ? 'border-white ring-2 ring-cyan-500/40'
-                        : 'border-transparent hover:border-slate-700'
+                        ? 'border-neutral-900 dark:border-white ring-2 ring-white/20'
+                        : 'border-transparent hover:border-neutral-300 dark:hover:border-zinc-700'
                     }`}
                     style={{ backgroundColor: conf.hex }}
                   >
@@ -135,9 +135,9 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({ compact = false, c
           </div>
 
           {/* Quick Info Footer */}
-          <div className="pt-2 border-t border-slate-800 text-[10px] font-mono text-slate-400 flex items-center justify-between">
+          <div className="pt-2 border-t border-neutral-100 dark:border-zinc-800/80 text-[10px] font-mono text-zinc-400 flex items-center justify-between">
             <span>Disimpan di LocalStorage</span>
-            <span className="text-emerald-400 font-semibold">Instan</span>
+            <span className="text-emerald-500 dark:text-emerald-400 font-semibold">Instan</span>
           </div>
         </div>
       )}

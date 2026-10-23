@@ -2,118 +2,135 @@
 
 :root {
   color-scheme: dark;
-  --bg-main: #030712;
-  --text-main: #f3f4f6;
-  --panel-bg: rgba(17, 24, 39, 0.7);
-  --card-bg: rgba(15, 23, 42, 0.6);
+  --bg-main: #000000;
+  --text-main: #ffffff;
+  --panel-bg: rgba(10, 10, 12, 0.85);
+  --card-bg: rgba(14, 14, 18, 0.7);
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --accent-color: #06b6d4;
-  --accent-glow: rgba(6, 182, 212, 0.35);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent-color: #10B981;
+  --accent-glow: rgba(16, 185, 129, 0.35);
 }
 
 html.light {
   color-scheme: light;
-  --bg-main: #f8fafc;
-  --text-main: #0f172a;
-  --panel-bg: rgba(255, 255, 255, 0.88);
-  --card-bg: #ffffff;
+  --bg-main: #ffffff;
+  --text-main: #09090b;
+  --panel-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: #f8fafc;
   --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
 }
 
 @layer base {
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Plus Jakarta Sans", sans-serif;
     overflow-x: hidden;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 }
 
-/* Custom glowing effects and gradients */
+html.light body {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+/* Custom glowing effects and gradients (Vercel & Railway style) */
 .glow-primary {
-  box-shadow: 0 0 50px -10px var(--accent-glow, rgba(59, 130, 246, 0.4));
+  box-shadow: 0 0 50px -10px var(--accent-glow, rgba(16, 185, 129, 0.4));
 }
 
 .glow-purple {
-  box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.4);
 }
 
 .glass-panel {
   background: var(--panel-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
 .glass-card {
   background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: var(--accent-color, rgba(99, 102, 241, 0.4));
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.9), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Light Mode Overrides for High-Contrast Clean Aesthetics */
+html.light .bg-\[\#000000\],
 html.light .bg-\[\#030712\],
-html.light .bg-slate-950 {
-  background-color: #f8fafc !important;
+html.light .bg-slate-950,
+html.light .bg-zinc-950,
+html.light .bg-neutral-950 {
+  background-color: #ffffff !important;
 }
 
 html.light .text-slate-100,
+html.light .text-zinc-100,
 html.light .text-white {
-  color: #0f172a !important;
+  color: #09090b !important;
 }
 
-html.light .text-slate-200 {
-  color: #1e293b !important;
+html.light .text-slate-200,
+html.light .text-zinc-200 {
+  color: #18181b !important;
 }
 
-html.light .text-slate-300 {
-  color: #334155 !important;
+html.light .text-slate-300,
+html.light .text-zinc-300 {
+  color: #27272a !important;
 }
 
-html.light .text-slate-400 {
-  color: #64748b !important;
+html.light .text-slate-400,
+html.light .text-zinc-400 {
+  color: #71717a !important;
 }
 
 html.light .bg-slate-900,
-html.light .bg-slate-900\/90,
-html.light .bg-slate-900\/80,
-html.light .bg-slate-900\/50 {
-  background-color: #f1f5f9 !important;
+html.light .bg-zinc-900,
+html.light .bg-neutral-900 {
+  background-color: #f4f4f5 !important;
 }
 
 html.light .border-slate-800,
 html.light .border-slate-700,
-html.light .border-slate-700\/80,
-html.light .border-slate-700\/60,
-html.light .border-slate-800\/60 {
-  border-color: #e2e8f0 !important;
+html.light .border-zinc-800,
+html.light .border-zinc-700 {
+  border-color: #e4e4e7 !important;
 }
 
 html.light nav.glass-panel {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 1) !important;
 }
 
 html.light .glass-card {
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
 html.light .glass-card:hover {
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
 }
 
-/* Ensure buttons with solid gradient retain white text */
-html.light button[class*="bg-gradient-to-r"],
-html.light button[class*="bg-gradient-to-r"] *,
-html.light button[class*="bg-blue-600"],
-html.light button[class*="bg-blue-600"] * {
+/* Ensure buttons with solid dark or white background retain appropriate text */
+html.light button.bg-white,
+html.light a.bg-white {
+  background-color: #09090b !important;
   color: #ffffff !important;
 }
 
@@ -128,8 +145,13 @@ html.light button[class*="bg-blue-600"] * {
   --accent-glow: rgba(255, 255, 255, 0.3);
 }
 html.light.theme-monochrome {
-  --accent-color: #0F172A;
-  --accent-glow: rgba(15, 23, 42, 0.2);
+  --accent-color: #09090B;
+  --accent-glow: rgba(9, 9, 11, 0.15);
+}
+
+.theme-charcoal {
+  --accent-color: #52525B;
+  --accent-glow: rgba(82, 82, 91, 0.35);
 }
 
 .theme-amber {
@@ -145,6 +167,25 @@ html.light.theme-monochrome {
 .theme-cyan {
   --accent-color: #06B6D4;
   --accent-glow: rgba(6, 182, 212, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Animations */
