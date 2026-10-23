@@ -38,7 +38,7 @@ export const WhitepaperModal: FC<WhitepaperModalProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 overflow-y-auto animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-5 overflow-y-auto animate-fadeIn">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/85 backdrop-blur-md transition-opacity"
@@ -46,7 +46,10 @@ export const WhitepaperModal: FC<WhitepaperModalProps> = ({ isOpen, onClose }) =
       />
 
       {/* Modal Dialog */}
-      <div className="relative w-full max-w-4xl bg-slate-900 border border-slate-700/80 rounded-2xl sm:rounded-3xl shadow-2xl shadow-black/80 flex flex-col max-h-[92vh] overflow-hidden z-10">
+      <div className="relative w-full max-w-4xl bg-slate-900 border border-slate-700/80 rounded-t-3xl sm:rounded-3xl shadow-2xl shadow-black/80 flex flex-col max-h-[92vh] overflow-hidden z-10 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:pb-0">
+        {/* Mobile Swipe Handle */}
+        <div className="w-12 h-1.5 bg-slate-700 rounded-full mx-auto my-2.5 sm:hidden shrink-0" />
+
         {/* Header */}
         <div className="px-6 py-5 border-b border-slate-800 bg-slate-950/70 flex items-center justify-between">
           <div className="flex items-center gap-3">

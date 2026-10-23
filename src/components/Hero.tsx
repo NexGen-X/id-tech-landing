@@ -154,7 +154,7 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
 
             {/* Terminal Body */}
             <div className="p-5 sm:p-6 font-mono text-xs sm:text-sm space-y-4 bg-black/80">
-              <div className="text-zinc-400 pb-2 border-b border-zinc-800/80 flex items-center justify-between">
+              <div className="text-zinc-400 pb-2 border-b border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                 <span>Task: [ENTERPRISE_PIPELINE] Deploy Multi-Agent Microservice</span>
                 <span className="text-emerald-400 font-medium">Orkestrasi Otomatis</span>
               </div>
@@ -196,18 +196,18 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
                 );
               })}
 
-              <div className="pt-2 flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80">
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-400 border-t border-slate-800/80">
                 <span className="flex items-center gap-2">
-                  <Activity className="w-3.5 h-3.5 text-blue-400" />
-                  Latency: 14ms | Swarm Sync: 100% | Memory Graph: Active
+                  <Activity className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                  <span>Latency: 14ms | Swarm Sync: 100% | Memory Graph: Active</span>
                 </span>
                 <a
                   href={CONFIG.appConsoleUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold hover:underline"
+                  className="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold hover:underline shrink-0"
                 >
-                  Buka Full Console
+                  <span>Buka Full Console</span>
                   <ChevronRight className="w-3 h-3" />
                 </a>
               </div>

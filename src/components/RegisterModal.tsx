@@ -104,8 +104,11 @@ export const RegisterModal: FC<RegisterModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-lg rounded-2xl glass-panel border border-slate-700 p-6 sm:p-8 shadow-2xl bg-slate-950/95 overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+      <div className="relative w-full max-w-lg rounded-t-3xl sm:rounded-2xl glass-panel border border-slate-700 p-6 sm:p-8 shadow-2xl bg-slate-950/95 overflow-hidden max-h-[92vh] overflow-y-auto pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-8">
+        {/* Mobile Swipe Handle */}
+        <div className="w-12 h-1.5 bg-neutral-600 rounded-full mx-auto mb-3 sm:hidden shrink-0" />
+
         {/* Glowing top line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400" />
 
